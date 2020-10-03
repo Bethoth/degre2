@@ -1,13 +1,17 @@
 from math import sqrt
 from uuid import uuid4
 import re
-from tkinter import *
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
-from matplotlib.backend_bases import key_press_handler
-import matplotlib.pyplot as plt
-import numpy as np
+import yaml
+import ctypes
+import locale
 
 DEFAULT = uuid4()
+
+with open("config.yaml", "r") as yamlfile:
+    data = yaml.load(yamlfile, Loader=yaml.FullLoader)
+
+windll = ctypes.windll.kernel32
+language = locale.windows_locale[windll.GetUserDefaultUILanguage()][:2]
 
 
 def roots(a, b, c):
@@ -354,7 +358,6 @@ def fromFactorisedToDeveloped(a, x1 = DEFAULT, x2 = DEFAULT, x0 = DEFAULT):
 
 def fromFactorisedToCanonical(developedForm):
     trinomial = re.sub(" ", "", developedForm)
-    #trinomial.translate(str.maketrans('', '', string.whitespace))
 
     a = float(trinomial[:trinomial.find("x²")])
     trinomial = trinomial[trinomial.find("²") + 1:]
@@ -368,14 +371,14 @@ def fromFactorisedToCanonical(developedForm):
     return canonicalForm
 
 
-print("Entrez un trinôme du second degré.")
-print("Si vous entrez le trinôme sous sa forme développée-réduite, ajoutez un d à la fin.")
-print("Si vous entrez le trinôme sous sa forme canonique, ajoutez un c à la fin.")
-print("Si vous entrez le trinôme sous sa forme factorisée, avec deux racines, ajoutez deux f à la fin.")
-print("Si vous entrez le trinôme sous sa forme factorisée, avec une racine, ajoutez un f à la fin.")
+print(data[0][language]['1'])
+print(data[0][language]['2'])
+print(data[0][language]['3'])
+print(data[0][language]['4'])
+print(data[0][language]['5'])
 
 
-trinomial = input("Votre trinôme : ")
+trinomial = input(data[0][language]['6'])
 
 if trinomial[-1] == "d":
     trinomial = baseTrinomial = trinomial[:-1]
@@ -391,9 +394,9 @@ if trinomial[-1] == "d":
     canonicalForm = fromDevelopedToCanonical(a, b, c)
     factorisedForm = fromDevelopedToFactorised(a, b, c)
 
-    print("Vous avez entré ce trinôme (forme développée-réduite) : " + baseTrinomial)
-    print("Sa forme canonique est : " + canonicalForm)
-    print("Sa forme factorisée est : " + factorisedForm)
+    print(data[0][language]['d1'] + baseTrinomial)
+    print(data[0][language]['d2'] + canonicalForm)
+    print(data[0][language]['d3'] + factorisedForm)
 
 elif trinomial[-1] == "c":
     trinomial = baseTrinomial = trinomial[:-1]
@@ -409,9 +412,9 @@ elif trinomial[-1] == "c":
     developedForm = fromCanonicalToDeveloped(a, alpha, beta)
     factorisedForm = fromCanonicalToFactorised(a, alpha, beta)
 
-    print("Vous avez entré ce trinôme (forme canonique) : " + baseTrinomial)
-    print("Sa forme développée-réduite est : " + developedForm)
-    print("Sa forme factorisée est : " + factorisedForm)
+    print(data[0][language]['c1'] + baseTrinomial)
+    print(data[0][language]['c2'] + developedForm)
+    print(data[0][language]['c3'] + factorisedForm)
 
 elif trinomial[-1] == "f" and trinomial[-1] + trinomial[-2] != "ff":
     trinomial = baseTrinomial = trinomial[:-1]
@@ -424,9 +427,9 @@ elif trinomial[-1] == "f" and trinomial[-1] + trinomial[-2] != "ff":
     developedForm = fromFactorisedToDeveloped(a, x0=x0)
     canonicalForm = fromFactorisedToCanonical(developedForm)
 
-    print("Vous avez entré ce trinôme (forme factorisée avec une racine) : " + baseTrinomial)
-    print("Sa forme développée-réduite est : " + developedForm)
-    print("Sa forme canonique est : " + canonicalForm)
+    print(data[0][language]['f1'] + baseTrinomial)
+    print(data[0][language]['f2'] + developedForm)
+    print(data[0][language]['f3'] + canonicalForm)
 
 elif trinomial[-1] + trinomial[-2] == "ff":
     trinomial = baseTrinomial = trinomial[:-1]
@@ -443,6 +446,6 @@ elif trinomial[-1] + trinomial[-2] == "ff":
     developedForm = fromFactorisedToDeveloped(a, x1, x2)
     canonicalForm = fromFactorisedToCanonical(developedForm)
 
-    print("Vous avez entré ce trinôme (forme factorisée avec une racine) : " + baseTrinomial)
-    print("Sa forme développée-réduite est : " + developedForm)
-    print("Sa forme canonique est : " + canonicalForm)
+    print(data[0][language]['ff1'] + baseTrinomial)
+    print(data[0][language]['ff2'] + developedForm)
+    print(data[0][language]['ff3'] + canonicalForm)
