@@ -1,0 +1,46 @@
+- en:
+    '1': Enter a second-degree trinomial.
+    '2': If you enter the trinomial in its developed-reduced form, add a d at the
+      end of it.
+    '3': If you enter the trinomial in its canonical form, add a c at the end of it.
+    '4': If you enter the trinomial in its factorised form, with two roots, add two
+      f's at the end of it.
+    '5': If you enter the trinomial in its factorised form, with one root, add an
+      f at the end of it.
+    '6': 'Your trinomial: '
+    c1: 'You have entered this trinomial (canonical form): '
+    c2: 'Its developed-reduced form is: '
+    c3: 'Its factorised form is: '
+    d1: 'You have entered this trinomial (developed-reduced form): '
+    d2: 'Its canonical form is: '
+    d3: 'Its factorised form is: '
+    f1: 'You have entered this trinomial (factorised form with one root): '
+    f2: 'Its developed-reduced form is: '
+    f3: 'Its canonical form is: '
+    ff1: 'You have entered this trinomial (factorised form with two roots): '
+    ff2: 'Its developed-reduced form is: '
+    ff3: 'Its canonical form is: '
+  fr:
+    '1': "Entrez un trin\xF4me du second degr\xE9."
+    '2': "Si vous entrez le trin\xF4me sous sa forme d\xE9velopp\xE9e-r\xE9duite,\
+      \ ajoutez un d \xE0 la fin."
+    '3': "Si vous entrez le trin\xF4me sous sa forme canonique, ajoutez un c \xE0\
+      \ la fin."
+    '4': "Si vous entrez le trin\xF4me sous sa forme factoris\xE9e, avec deux racines,\
+      \ ajoutez deux f \xE0 la fin."
+    '5': "Si vous entrez le trin\xF4me sous sa forme factoris\xE9e, avec une racine,\
+      \ ajoutez un f \xE0 la fin."
+    '6': "Votre trin\xF4me : "
+    c1: "Vous avez entr\xE9 ce trin\xF4me (forme canonique) : "
+    c2: "Sa forme d\xE9velopp\xE9e-r\xE9duite est : "
+    c3: "Sa forme factoris\xE9e est : "
+    d1: "Vous avez entr\xE9 ce trin\xF4me (forme d\xE9velopp\xE9e-r\xE9duite) : "
+    d2: 'Sa forme canonique est : '
+    d3: "Sa forme factoris\xE9e est : "
+    f1: "Vous avez entr\xE9 ce trin\xF4me (forme factoris\xE9e avec une racine) : "
+    f2: "Sa forme d\xE9velopp\xE9e-r\xE9duite est : "
+    f3: 'Sa forme canonique est : '
+    ff1: "Vous avez entr\xE9 ce trin\xF4me (forme factoris\xE9e avec deux racines)\
+      \ : "
+    ff2: "Sa forme d\xE9velopp\xE9e-r\xE9duite est : "
+    ff3: 'Sa forme canonique est : '
